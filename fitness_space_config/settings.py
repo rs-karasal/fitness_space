@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Build paths inside the project like this: BASE_DIR / "subdir".
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -14,14 +14,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 try:
-    SECRET_KEY = env('SECRET_KEY')
+    SECRET_KEY = env("SECRET_KEY")
 except environ.EnvError as e:
     print(f"Ошибка: переменная окружения {e} не установлена.")
     sys.exit(1)
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don"t run with debug turned on in production!
 # DEBUG = env.bool("DEBUG", default=False)
 DEBUG = True
 
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     # 3d party
     "rest_framework",
+    "drf_spectacular",
 
     # local
     "users_app",
@@ -137,7 +138,16 @@ AUTH_USER_MODEL = "users_app.CustomUser"
 
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ]
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny",
+    ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Fitness Space API",
+    "DESCRIPTION": "Fitness Space API documentation",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
 }
