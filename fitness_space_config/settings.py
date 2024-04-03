@@ -40,9 +40,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
+    # 3d party
+    "rest_framework",
+
     # local
     "users_app",
     "trainers_app",
+    "schedules_app",
 ]
 
 MIDDLEWARE = [
@@ -130,3 +134,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 AUTH_USER_MODEL = "users_app.CustomUser"
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
