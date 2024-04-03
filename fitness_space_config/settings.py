@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     # local
     "users_app",
+    "trainers_app",
 ]
 
 MIDDLEWARE = [
