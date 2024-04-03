@@ -22,9 +22,12 @@ except environ.EnvError as e:
     sys.exit(1)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool("DEBUG", default=False)
+# DEBUG = env.bool("DEBUG", default=False)
+DEBUG = True
 
+# ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["yourdomain.com"])
 ALLOWED_HOSTS = []
+
 
 
 # Application definition
