@@ -1,7 +1,7 @@
 <h1 align="center">Fitness Space - API service for fitness centers</h1>
 
 <div align="center">
-https://img.shields.io/badge/Django-5.0.3-blue
+<img alt="Static Badge" src="https://img.shields.io/badge/Django-5.0.3-blue">
 <br>
 
 <i>Libraries and versions</i>
